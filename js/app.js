@@ -45,7 +45,6 @@
 
 
 const hoursOpen = ['6am','7am','8am','9am','10am','11am','12am','1pm','2pm','3pm','4pm','5pm','6pm','7pm'];
-const Stores = [seattle, tokyo, dubai, paris, lima];
 
 let seattle = {
   name: 'Seattle',
@@ -59,8 +58,9 @@ let seattle = {
   },
   //fill out the avgCookiesSold
   calcCookiesPerHour: function(){
+    console.log(this.avgCookiesSoldEachHourArray);
     for (let i = 0; i < hoursOpen.length; i++){
-      this.avgCookiesSoldEachHourArray.push(Math.round(this.avg + this.getCustomersPerHour()));
+      this.avgCookiesSoldEachHourArray.push(`${hoursOpen[i]} ${Math.round(this.avg + this.getCustomersPerHour())}`);
     }
     return this.avgCookiesSoldEachHourArray;
   },
@@ -137,3 +137,11 @@ let lima = {
     return this.avgCookiesSoldEachHourArray;
   },
 };
+console.log(seattle.calcCookiesPerHour());
+
+let ulListSeattle = document.getElementById('seattleList');
+for (let i = 0; i < seattle.avgCookiesSoldEachHourArray.length; i++){
+  let ulListItem = document.createElement('li');
+  ulListItem.innerHTML = seattle.avgCookiesSoldEachHourArray[i];
+  ulListSeattle.appendChild(ulListItem);
+}
