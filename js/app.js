@@ -60,7 +60,7 @@ let seattle = {
   calcCookiesPerHour: function(){
     console.log(this.avgCookiesSoldEachHourArray);
     for (let i = 0; i < hoursOpen.length; i++){
-      this.avgCookiesSoldEachHourArray.push(`${hoursOpen[i]} ${Math.round(this.avg + this.getCustomersPerHour())}`);
+      this.avgCookiesSoldEachHourArray.push(`${hoursOpen[i]}: ${Math.round(this.avg + this.getCustomersPerHour())} cookies`);
     }
     return this.avgCookiesSoldEachHourArray;
   },
@@ -78,7 +78,7 @@ let tokyo = {
   //fill out the avgCookiesSold
   calcCookiesPerHour: function(){
     for (let i = 0; i < hoursOpen.length; i++){
-      this.avgCookiesSoldEachHourArray.push(Math.round(this.avg + this.getCustomersPerHour()));
+      this.avgCookiesSoldEachHourArray.push(`${hoursOpen[i]}: ${Math.round(this.avg + this.getCustomersPerHour())} cookies`);
     }
     return this.avgCookiesSoldEachHourArray;
   },
@@ -96,7 +96,7 @@ let dubai = {
   //fill out the avgCookiesSold
   calcCookiesPerHour: function(){
     for (let i = 0; i < hoursOpen.length; i++){
-      this.avgCookiesSoldEachHourArray.push(Math.round(this.avg + this.getCustomersPerHour()));
+      this.avgCookiesSoldEachHourArray.push(`${hoursOpen[i]}: ${Math.round(this.avg + this.getCustomersPerHour())} cookies`);
     }
     return this.avgCookiesSoldEachHourArray;
   },
@@ -114,7 +114,7 @@ let paris = {
   //fill out the avgCookiesSold
   calcCookiesPerHour: function(){
     for (let i = 0; i < hoursOpen.length; i++){
-      this.avgCookiesSoldEachHourArray.push(Math.round(this.avg + this.getCustomersPerHour()));
+      this.avgCookiesSoldEachHourArray.push(`${hoursOpen[i]}: ${Math.round(this.avg + this.getCustomersPerHour())} cookies`);
     }
     return this.avgCookiesSoldEachHourArray;
   },
@@ -132,7 +132,7 @@ let lima = {
   //fill out the avgCookiesSold
   calcCookiesPerHour: function(){
     for (let i = 0; i < hoursOpen.length; i++){
-      this.avgCookiesSoldEachHourArray.push(Math.round(this.avg + this.getCustomersPerHour()));
+      this.avgCookiesSoldEachHourArray.push(`${hoursOpen[i]}: ${Math.round(this.avg + this.getCustomersPerHour())} cookies`);
     }
     return this.avgCookiesSoldEachHourArray;
   },
