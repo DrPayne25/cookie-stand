@@ -1,36 +1,36 @@
-// 'use strict';
-// console.log('Hello World');
-// //gets the element
-// const mycontainer = document.getElementById('container');
+'use strict';
+console.log('Hello World');
+//gets the element
+const mycontainer = document.getElementById('container');
 
-// //Proof of Life get in the habit of doing this more
-// console.log(mycontainer);
+//Proof of Life get in the habit of doing this more
+console.log(mycontainer);
 
-// //1.Create Element
-// let section = document.createElement('section');
-// //2.give it content
-// let ul = document.createElement('ul');
-// //3. append to the DOM
-// mycontainer.appendChild(section);
-// //Do this its important to do proof of life as you go
+//1.Create Element
+let section = document.createElement('section');
+//2.give it content
+let ul = document.createElement('ul');
+//3. append to the DOM
+mycontainer.appendChild(section);
+//Do this its important to do proof of life as you go
 
-// // create element
-// let img = document.createElement('img');
-// //Content for this part
-// img.src = 'img/tokyo.jpg';
-// img.alt = 'picture of tokyo';
-// // append
-// section.appendChild(img);
-// //proof of life
+// create element
+let img = document.createElement('img');
+//Content for this part
+img.src = 'img/tokyo.jpg';
+img.alt = 'picture of tokyo';
+// append
+section.appendChild(img);
+//proof of life
 
-// //create article
-// let article = document.createElement('article');
-// //give content
-// let h3 = document.createElement('h3');
-// //give text content
-// h3.textContent = ''
-// //append to the dom
-// section.appendChild(article);
+//create article
+let article = document.createElement('article');
+//give content
+let h3 = document.createElement('h3');
+//give text content
+h3.textContent = 'Tokyo';
+//append to the dom
+section.appendChild(article);
 
 
 
@@ -136,12 +136,51 @@ let lima = {
     }
     return this.avgCookiesSoldEachHourArray;
   },
-};
+}
 console.log(seattle.calcCookiesPerHour());
+function seattleList() {
+  let ulListSeattle = document.getElementById('seattle_list');
+  for (let i = 0; i < seattle.avgCookiesSoldEachHourArray.length; i++){
+    let ulListItem = document.createElement('li');
+    ulListItem.innerHTML = seattle.avgCookiesSoldEachHourArray[i];
+    ulListSeattle.appendChild(ulListItem);
+  }
+}
+seattleList();
 
-let ulListSeattle = document.getElementById('seattleList');
-for (let i = 0; i < seattle.avgCookiesSoldEachHourArray.length; i++){
+console.log(tokyo.calcCookiesPerHour());
+function tokyoList() {
+  let ulListTokyo = document.getElementById('tokyo_list');
+  for (let i = 0; i < tokyo.avgCookiesSoldEachHourArray.length; i++){
+    let ulListItem = document.createElement('li');
+    ulListItem.innerHTML = tokyo.avgCookiesSoldEachHourArray[i];
+    ulListTokyo.appendChild(ulListItem);
+  }
+}
+tokyoList();
+
+console.log(dubai.calcCookiesPerHour());
+function dubaiList() {
+  let ulListDubai = document.getElementById('dubai_list');
+  for (let i = 0; i < dubai.avgCookiesSoldEachHourArray.length; i++){
+    let ulListItem = document.createElement('li');
+    ulListItem.innerHTML = dubai.avgCookiesSoldEachHourArray[i];
+    ulListDubai.appendChild(ulListItem);
+  }
+}
+dubaiList();
+
+console.log(paris.calcCookiesPerHour());
+let ulListParis = document.getElementById('paris_list');
+for (let i = 0; i < paris.avgCookiesSoldEachHourArray.length; i++){
   let ulListItem = document.createElement('li');
-  ulListItem.innerHTML = seattle.avgCookiesSoldEachHourArray[i];
-  ulListSeattle.appendChild(ulListItem);
+  ulListItem.innerHTML = paris.avgCookiesSoldEachHourArray[i];
+  ulListParis.appendChild(ulListItem);
+}
+console.log(lima.calcCookiesPerHour());
+let ulListLima = document.getElementById('lima_list');
+for (let i = 0; i < lima.avgCookiesSoldEachHourArray.length; i++){
+  let ulListItem = document.createElement('li');
+  ulListItem.innerHTML = lima.avgCookiesSoldEachHourArray[i];
+  ulListLima.appendChild(ulListItem);
 }
