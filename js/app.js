@@ -42,10 +42,30 @@
 
 
 
-
+const storeTable = document.querySelector('table');
+let allstores = [];
 
 const hoursOpen = ['6am','7am','8am','9am','10am','11am','12am','1pm','2pm','3pm','4pm','5pm','6pm','7pm'];
+function Stores (name, min, max, cookiesSoldEachHour, avg){
+  this.name = name;
+  this.min = min;
+  this.max = max;
+  this.avg = avg;
+  this.avgCookiesSoldEachHourArray = cookiesSoldEachHour;
+  allstores.push(this);
 
+}
+Stores.prototype.render = function (){
+  let tr = document.createElement('tr');
+  let td = document.createElement('td');
+  td.textContent = this.name;
+  tr.appendChild(td);
+for(let i = 0; i < this.avgCookiesSoldEachHourArray.length; i++)
+  storeTable.appendChild
+}
+Stores.prototype.sectionRender = function (){
+
+};
 let seattle = {
   name: 'Seattle',
   min: 23,
@@ -97,6 +117,7 @@ let tokyo = {
     }
   },
   render: function (){
+    //for each hour, create an li give it content and append to the list/DOM.
     this.calcCookiesPerHour();
     for (let i = 0; i < hoursOpen.length; i++){
       let tokyoList = document.getElementById('tokyo_list');
@@ -104,14 +125,14 @@ let tokyo = {
       li.textContent = `${hoursOpen[0]}: ${this.avgCookiesSoldEachHourArray[i]} cookies`;
       tokyoList.appendChild(li);
     }
-    //for each hour, create an li give it content and append to the list/DOM.
     //also need to render the daily total
     // console.log('I am in the render method');
     let liTotal = document.createElement('li');
-    liTotal.textContent = `Total: ${this.dailyTotal} cookies`;
-    this.tokyoList.append(liTotal);
+    liTotal.innerHTML = `Total: ${this.dailyTotal} cookies`;
+    this.tokyoList.appendChild(liTotal);
   }
 };
+
 tokyo.render();
 
 let dubai = {
@@ -127,29 +148,25 @@ let dubai = {
   //fill out the avgCookiesSold
   calcCookiesPerHour: function(){
     for (let i = 0; i < hoursOpen.length; i++){
-      this.avgCookiesSoldEachHourArray.push(`${hoursOpen[i]}: ${Math.round(this.avg + this.getCustomersPerHour())} cookies`);
+      let hourlyCust = this.getCustomersPerHour();
+      let hourlyCookies = Math.ceil(hourlyCust * this.avg);
+      this.avgCookiesSoldEachHourArray.push(hourlyCookies);
+      this.dailyTotal += hourlyCookies;
     }
-    return this.avgCookiesSoldEachHourArray;
   },
-};
-let paris = {
-  name: 'Paris',
-  min: 20,
-  max: 38,
-  avgCookiesSoldEachHourArray: [],
-  avg: 2.3,
-  //get a random number of customers per hour
-  getCustomersPerHour: function (){
-    return Math.floor(Math.random() * (this.max - this.min + 1) + this.min);
-  },
-  //fill out the avgCookiesSold
-  calcCookiesPerHour: function(){
+  render: function (){
+    //for each hour, create an li give it content and append to the list/DOM.
+    this.calcCookiesPerHour();
     for (let i = 0; i < hoursOpen.length; i++){
-      this.avgCookiesSoldEachHourArray.push(`${hoursOpen[i]}: ${Math.round(this.avg + this.getCustomersPerHour())} cookies`);
+      let dubaiList = document.getElementById('dubai_list');
+      let li = document.createElement('li');
+      li.textContent = `${hoursOpen[0]}: ${this.avgCookiesSoldEachHourArray[i]} cookies`;
+      dubaiList.appendChild(li);
     }
-    return this.avgCookiesSoldEachHourArray;
-  },
+  }
 };
+dubai.render();
+
 let lima = {
   name: 'lima',
   min: 2,
