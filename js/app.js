@@ -44,16 +44,41 @@ const limaList = document.getElementById('lima_list');
 
 const hoursOpen = ['6am', '7am', '8am', '9am', '10am', '11am', '12am', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 let allStores = []
-function Stores(name, min, max, avg) {
+function Stores(name, min, max, avg, avgCookiesSoldEachHourArray) {
   this.name = name;
   this.min = min;
   this.max = max;
   this.avg = avg;
+  this.dailyTotal = 0,
+  this.avgCookiesSoldEachHourArray = [];
   allStores.push(this);
 }
+Stores.prototype.getCustomersPerHour = function (){
+  return Math.floor(Math.random() * (this.max - this.min + 1) + this.min);
+},
+Stores.prototype.calcCookiesPerHour = function(){
+  for (let i = 0; i < hoursOpen.length; i++) {
+    let hourlyCust = this.getCustomersPerHour();
+    let hourlyCookies = Math.ceil(hourlyCust * this.avg);
+    this.avgCookiesSoldEachHourArray.push(hourlyCookies);
+    this.dailyTotal += hourlyCookies;
+  }
+},
+Stores.prototype.renderList = function (){
+  this.calcCookiesPerHour();
+  for (let i = 0; i < hoursOpen.length; i++) {
+    let li = document.createElement('li');
+    li.textContent = `${hoursOpen[i]}: ${this.avgCookiesSoldEachHourArray[i]} cookies`;
+    seattleList.append(li);
+  }
+  let liTotal = document.createElement('li');
+  liTotal.textContent = `Total: ${this.dailyTotal} cookies`;
+  seattleList.appendChild(liTotal);
+};
 
 let seattleStore = new Stores('Seattle', 23, 65, 6.3);
-console.log(seattleStore);
+seattleStore.renderList();
+// console.log(seattleStore);
 // Stores.prototype.render = function () {
 //   let tr = document.createElement('tr');
 //   let td = document.createElement('td');
@@ -62,41 +87,41 @@ console.log(seattleStore);
 //   for (let i = 0; i < this.avgCookiesSoldEachHourArray.length; i++)
 //     storeTable.appendChild
 // }
-// Stores.prototype.sectionRender = function () {
+Stores.prototype.sectionRender = function () {
 
-// };
-
-let seattle = {
-  name: 'Seattle',
-  min: 23,
-  max: 65,
-  avgCookiesSoldEachHourArray: [],
-  avg: 6.3,
-  dailyTotal: 0,
-  getCustomersPerHour: function () {
-    return Math.floor(Math.random() * (this.max - this.min + 1) + this.min);
-  },
-  calcCookiesPerHour: function () {
-    for (let i = 0; i < hoursOpen.length; i++) {
-      let hourlyCust = this.getCustomersPerHour();
-      let hourlyCookies = Math.ceil(hourlyCust * this.avg);
-      this.avgCookiesSoldEachHourArray.push(hourlyCookies);
-      this.dailyTotal += hourlyCookies;
-    }
-  },
-  render: function () {
-    this.calcCookiesPerHour();
-    for (let i = 0; i < hoursOpen.length; i++) {
-      let li = document.createElement('li');
-      li.textContent = `${hoursOpen[i]}: ${this.avgCookiesSoldEachHourArray[i]} cookies`;
-      seattleList.append(li);
-    }
-    let liTotal = document.createElement('li');
-    liTotal.textContent = `Total: ${this.dailyTotal} cookies`;
-    seattleList.appendChild(liTotal);
-  }
 };
-seattle.render();
+
+// let seattle = {
+//   name: 'Seattle',
+//   min: 23,
+//   max: 65,
+//   avgCookiesSoldEachHourArray: [],
+//   avg: 6.3,
+//   dailyTotal: 0,
+//   getCustomersPerHour: function () {
+//     return Math.floor(Math.random() * (this.max - this.min + 1) + this.min);
+//   },
+//   calcCookiesPerHour: function () {
+//     for (let i = 0; i < hoursOpen.length; i++) {
+//       let hourlyCust = this.getCustomersPerHour();
+//       let hourlyCookies = Math.ceil(hourlyCust * this.avg);
+//       this.avgCookiesSoldEachHourArray.push(hourlyCookies);
+//       this.dailyTotal += hourlyCookies;
+//     }
+//   },
+//   render: function () {
+//     this.calcCookiesPerHour();
+//     for (let i = 0; i < hoursOpen.length; i++) {
+//       let li = document.createElement('li');
+//       li.textContent = `${hoursOpen[i]}: ${this.avgCookiesSoldEachHourArray[i]} cookies`;
+//       seattleList.append(li);
+//     }
+//     let liTotal = document.createElement('li');
+//     liTotal.textContent = `Total: ${this.dailyTotal} cookies`;
+//     seattleList.appendChild(liTotal);
+//   }
+// };
+// seattle.render();
 
 let tokyo = {
   name: 'Tokyo',
