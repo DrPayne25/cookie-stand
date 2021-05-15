@@ -188,4 +188,3 @@ let lima = {
   }
 };
 lima.render();
-
