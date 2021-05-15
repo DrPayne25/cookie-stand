@@ -1,6 +1,6 @@
-// 'use strict';
-// console.log('Hello World');
-// //gets the element
+'use strict';
+console.log('Hello World');
+
 // const mycontainer = document.getElementById('container');
 
 // //Proof of Life get in the habit of doing this more
@@ -36,31 +36,24 @@
 
 
 
-
-
-
-
-
-
-const storeTable = document.querySelector('table');
-let allstores = [];
-
-let seattleList = document.getElementById('seattle_list');
-let tokyoList = document.getElementById('tokyo_list');
-let dubaiList = document.getElementById('dubai_list');
-let parisList = document.getElementById('paris_list');
-let limaList = document.getElementById('lima_list');
+const seattleList = document.getElementById('seattle_list');
+const tokyoList = document.getElementById('tokyo_list');
+const dubaiList = document.getElementById('dubai_list');
+const parisList = document.getElementById('paris_list');
+const limaList = document.getElementById('lima_list');
 
 const hoursOpen = ['6am', '7am', '8am', '9am', '10am', '11am', '12am', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
-// function Stores(name, min, max, cookiesSoldEachHour, avg) {
-//   this.name = name;
-//   this.min = min;
-//   this.max = max;
-//   this.avg = avg;
-//   this.avgCookiesSoldEachHourArray = cookiesSoldEachHour;
-//   allstores.push(this);
+let allStores = []
+function Stores(name, min, max, avg) {
+  this.name = name;
+  this.min = min;
+  this.max = max;
+  this.avg = avg;
+  allStores.push(this);
+}
 
-// }
+let seattleStore = new Stores('Seattle', 23, 65, 6.3);
+console.log(seattleStore);
 // Stores.prototype.render = function () {
 //   let tr = document.createElement('tr');
 //   let td = document.createElement('td');
@@ -72,6 +65,7 @@ const hoursOpen = ['6am', '7am', '8am', '9am', '10am', '11am', '12am', '1pm', '2
 // Stores.prototype.sectionRender = function () {
 
 // };
+
 let seattle = {
   name: 'Seattle',
   min: 23,
@@ -95,7 +89,7 @@ let seattle = {
     for (let i = 0; i < hoursOpen.length; i++) {
       let li = document.createElement('li');
       li.textContent = `${hoursOpen[i]}: ${this.avgCookiesSoldEachHourArray[i]} cookies`;
-      seattleList.appendChild(li);
+      seattleList.append(li);
     }
     let liTotal = document.createElement('li');
     liTotal.textContent = `Total: ${this.dailyTotal} cookies`;
@@ -244,4 +238,38 @@ let lima = {
   }
 };
 lima.render();
+
+//gets the element
+// const mycontainer = document.getElementById('container2');
+
+// //Proof of Life get in the habit of doing this more
+// console.log(mycontainer);
+
+// //1.Create Element
+// let section = document.createElement('section');
+// //2.give it content
+// let ul = document.createElement('ul');
+// //3. append to the DOM
+// mycontainer.appendChild(section);
+// //Do this its important to do proof of life as you go
+
+// // create element
+// let img = document.createElement('img');
+// //Content for this part
+// img.src = 'img/tokyo.jpg';
+// img.alt = 'picture of tokyo';
+// // append
+// section.appendChild(img);
+// //proof of life
+
+// //create article
+// let article = document.createElement('article');
+// //give content
+// let h3 = document.createElement('h3');
+// //give text content
+// h3.textContent = 'Tokyo';
+// //append to the dom
+// section.appendChild(article);
+
+
 
