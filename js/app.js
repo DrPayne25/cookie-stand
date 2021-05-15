@@ -177,10 +177,12 @@ for (let i = 0; i < paris.avgCookiesSoldEachHourArray.length; i++){
   ulListItem.innerHTML = paris.avgCookiesSoldEachHourArray[i];
   ulListParis.appendChild(ulListItem);
 }
-console.log(lima.calcCookiesPerHour());
+
 let ulListLima = document.getElementById('lima_list');
 for (let i = 0; i < lima.avgCookiesSoldEachHourArray.length; i++){
   let ulListItem = document.createElement('li');
   ulListItem.innerHTML = lima.avgCookiesSoldEachHourArray[i];
   ulListLima.appendChild(ulListItem);
 }
+
+console.log(lima.calcCookiesPerHour());
