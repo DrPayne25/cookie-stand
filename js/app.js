@@ -37,8 +37,10 @@ console.log('Hello World');
 
 
 const seattleList = document.getElementById('sales');
+const cookieTable = document.querySelector('table')
 
 const hoursOpen = ['6am', '7am', '8am', '9am', '10am', '11am', '12am', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
+const storeLocations = ['Seattle', 'Tokyo', 'Dubai', 'Paris', 'Lima']
 let allStores = []
 function Stores(name, min, max, avg,) {
   this.name = name;
@@ -48,6 +50,7 @@ function Stores(name, min, max, avg,) {
   this.dailyTotal = 0,
   this.avgCookiesSoldEachHourArray = [];
   allStores.push(this);
+  this.render();
 }
 Stores.prototype.getCustomersPerHour = function (){
   return Math.floor(Math.random() * (this.max - this.min + 1) + this.min);
@@ -60,31 +63,87 @@ Stores.prototype.calcCookiesPerHour = function(){
     this.dailyTotal += hourlyCookies;
   }
 },
-Stores.prototype.renderList = function (){
+Stores.prototype.render = function (){
   this.calcCookiesPerHour();
-  let h3 = document.createElement('h3');
-  h3.textContent = this.name;
-  seattleList.append(h3);
-  for (let i = 0; i < hoursOpen.length; i++) {
-    let li = document.createElement('li');
-    li.textContent = `${hoursOpen[i]}: ${this.avgCookiesSoldEachHourArray[i]} cookies`;
-    seattleList.append(li);
+  let tableRow = document.createElement('tr');
+  let tableData = document.createElement('td');
+  tableData.textContent = this.name;
+  tableRow.appendChild(tableData);
+  for (let i = 0; i < hoursOpen.length; i++){
+    let tableData = document.createElement('td');
+    tableData.textContent = this.avgCookiesSoldEachHourArray[i];
+    tableRow.appendChild(tableData);
   }
-  let liTotal = document.createElement('li');
-  liTotal.textContent = `Total: ${this.dailyTotal} cookies`;
-  seattleList.appendChild(liTotal);
+  tableData = document.createElement('td');
+  tableData.textContent = this.dailyTotal;
+  tableRow.appendChild(tableData);
+  cookieTable.appendChild(tableRow)
+}
+
+function cookieHeader() {
+let th = document.createElement('th');
+let td = document.createElement('td');
+th.appendChild(td);
+
+for (let i = 0; i < hoursOpen.length; i++){
+  let td = document.createElement('td');
+  td.textContent = hoursOpen[i];
+  th.appendChild(td);
+  }
+  td = document.createElement('td');
+  td.textContent = 'Total';
+  th.appendChild(td);
+  cookieTable.appendChild(th);
 };
+
+cookieHeader();
+
+
+  // tableRow.appendChild(tableData);
+
+  // Stores.prototype.renderList = function (){
+  //   this.calcCookiesPerHour();
+  //   let h3 = document.createElement('h3');
+  //   h3.textContent = this.name;
+  //   seattleList.append(h3);
+  //   for (let i = 0; i < hoursOpen.length; i++) {
+  //     let li = document.createElement('li');
+  //     li.textContent = `${hoursOpen[i]}: ${this.avgCookiesSoldEachHourArray[i]} cookies`;
+  //     seattleList.append(li);
+  //   }
+  //   let liTotal = document.createElement('li');
+  //   liTotal.textContent = `Total: ${this.dailyTotal} cookies`;
+  //   seattleList.append(liTotal);
+  // },
+  
+  // for (let i = 0; i < storeLocations.length; i++)
+  // let thTitle = document.createElement('tr');
+  // thScope.textContent = this.name[i]
+
+
+// function generateTableHead(table){
+//   let thead = table.createTHead();
+//   let row = thead.insertRow();
+//   for (let key of data) {
+//     let th = documnet.createElement('th');
+//     let text = document.createTextNode(key);
+//     th.appendChild(text);
+//     row.appendChild(th);
+//   }
+// }
+
 
 let seattleStore = new Stores('Seattle', 23, 65, 6.3);
 let tokyoStore = new Stores('Tokyo', 3, 24, 1.2);
 let dubaiStore = new Stores('Dubai', 11, 38, 3.7);
 let parisStore = new Stores('Paris', 20, 38, 2.3);
 let limaStore = new Stores('Lima', 2, 16, 4.6);
-seattleStore.renderList();
-tokyoStore.renderList();
-dubaiStore.renderList();
-parisStore.renderList();
-limaStore.renderList();
+seattleStore.renderTable
+// seattleStore.renderList();
+// tokyoStore.renderList();
+// dubaiStore.renderList();
+// parisStore.renderList();
+// limaStore.renderList();
 // let storeData = ['Seattle', 23, 65, 6.3], ['Tokyo', 3, 24, 1.2], ['Dubai', 11, 38, 3.7], ['Paris', 20, 38, 2.3], ['Lima', 2, 16, 4.6];
 // store
 // console.log(seattleStore);
