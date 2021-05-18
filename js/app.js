@@ -74,38 +74,6 @@ function cookieHeader() {
       }
     };
 cookieFooter();
-  // tableRow.appendChild(tableData);
-
-  // Stores.prototype.renderList = function (){
-  //   this.calcCookiesPerHour();
-  //   let h3 = document.createElement('h3');
-  //   h3.textContent = this.name;
-  //   seattleList.append(h3);
-  //   for (let i = 0; i < hoursOpen.length; i++) {
-  //     let li = document.createElement('li');
-  //     li.textContent = `${hoursOpen[i]}: ${this.avgCookiesSoldEachHourArray[i]} cookies`;
-  //     seattleList.append(li);
-  //   }
-  //   let liTotal = document.createElement('li');
-  //   liTotal.textContent = `Total: ${this.dailyTotal} cookies`;
-  //   seattleList.append(liTotal);
-  // },
-  
-  // for (let i = 0; i < storeLocations.length; i++)
-  // let thTitle = document.createElement('tr');
-  // thScope.textContent = this.name[i]
-
-
-// function generateTableHead(table){
-//   let thead = table.createTHead();
-//   let row = thead.insertRow();
-//   for (let key of data) {
-//     let th = documnet.createElement('th');
-//     let text = document.createTextNode(key);
-//     th.appendChild(text);
-//     row.appendChild(th);
-//   }
-// }
 
 let seattleStore = new Stores('Seattle', 23, 65, 6.3);
 let tokyoStore = new Stores('Tokyo', 3, 24, 1.2);
