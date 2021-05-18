@@ -60,7 +60,7 @@ function cookieHeader() {
   
   cookieHeader();
 
-  function cookieFooter() {
+  function cookieFooterRender() {
     let tfoot = document.createElement('tfoot');
     let tr = document.createElement('tr');
     tfoot.appendChild(tr);
@@ -73,7 +73,7 @@ function cookieHeader() {
       tfoot.appendChild(td);
       }
     };
-cookieFooter();
+cookieFooterRender();
 
 let seattleStore = new Stores('Seattle', 23, 65, 6.3);
 let tokyoStore = new Stores('Tokyo', 3, 24, 1.2);
