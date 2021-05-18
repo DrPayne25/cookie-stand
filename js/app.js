@@ -1,5 +1,5 @@
 
-
+let cookieTable = document.querySelector('table');
 const hoursOpen = ['6am', '7am', '8am', '9am', '10am', '11am', '12am', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 let allStores = []
 function Stores(name, min, max, avg,) {
@@ -112,5 +112,5 @@ let tokyoStore = new Stores('Tokyo', 3, 24, 1.2);
 let dubaiStore = new Stores('Dubai', 11, 38, 3.7);
 let parisStore = new Stores('Paris', 20, 38, 2.3);
 let limaStore = new Stores('Lima', 2, 16, 4.6);
-seattleStore.renderTable/
+seattleStore.renderTable
 
