@@ -1,45 +1,234 @@
-body {
-  background-color: black;
+body{
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Header */
+header {
+  background-color: #444;
+  height: 100px;
+}
+
+nav {
   width: 960px;
   margin: auto;
 }
 
-h1 {
-  font-family: 'Courier New', Courier, monospace;
-  color: aliceblue;
-  font-size: 3em;
-  text-align: center;
-  margin: 25px;
+#header__image1 {
+  margin-top: 15px;
+  float: left;
 }
 
-section {
-  border: thick solid green;
-  border-radius: 25px;
-  font-family: 'Courier New', Courier, monospace;
-  color: aliceblue;
-}
-
-section img {
-  margin: 10px;
-  border-radius: 25px;
-  border: medium solid green;
-  width: 600px;
-}
-
-article  {
-  width:  33%;
+#header__image2 {
+  margin-top: 15px;
   float: right;
-  margin-right: 10px;
 }
 
-h3 {
-  font-family: 'Courier New', Courier, monospace;
-  color: aliceblue;
-  font-size: 1.5em;
+header li {
+  display: inline-block;
+  line-height: 100px;
+  margin-left: 90px;
+}
+
+header li:first-child {
+  margin-left: 30px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #aaa;
+}
+
+/* Main */
+main {
+  width: 960px;
+  margin: auto;
+}
+
+main h1 {
+  text-align: center;
+  font-size: 40px;
+}
+
+main h2 {
+  text-align: center;
+  font-size: 30px;
+}
+
+main img {
+  margin-top: 30px;
+}
+
+main li {
+  margin-left: 30px;
+  float: left;
+}
+
+main li:first-child {
+  margin-left: 0;
+}
+
+main article {
+  width: 50%;
+  float: right;
+  margin-top: 30px;
+}
+
+main h3 {
+  margin-left: 30px;
+  font-size: 20px;
+}
+
+main p {
+  margin-left: 30px;
+  margin-top: 10px;
+  line-height: 20px;
+  font-style: italic;
+  overflow: auto;
+  height: 330px;
+}
+
+article div {
+  background: #111;
+  text-decoration: none;
+  color: #eee;
+  margin-left: 30px;
+  margin-top: 5px;
+  padding: 10px 30px;
+  display: inline-block;
+  font-size: 15;
+  border-radius: 10px;
+}
+
+article div:hover {
+  background-color: green;
+  transition: 350ms;
+  color: black;
+}
+
+/* Work Section */
+.work {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 10rem 0;
+}
+
+#work h2 {
+  background-color: #ff8177;
+  background-image: linear-gradient(to bottom, #000428 0%, #004e92 100%);
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+  margin-bottom: 5rem;
+  font-size: 2.5rem;
+}
+
+.work__wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+}
+
+.work__card {
   margin: 10px;
+  height: 245px;
+  width: 300px;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #fff;
+  background-image: linear-gradient(to bottom, #E6DADA 0%, #274046 100%);
+  transition: 0.3s ease-in;
 }
 
-p {
-  line-height: 1.25em;
-  text-align: justify;
+.work__card:nth-child(3) {
+  background-image: linear-gradient(
+    -225deg,
+    #231557 0%,
+    #44107a 29%,
+    #ff1361 67%,
+    #fff800 100%
+  );
+}
+
+.work__card li {
+  margin-left: 30px;
+  float: left;
+  color: whitesmoke;
+}
+
+.work__card li:first-child {
+  margin-left: 50;
+  padding-left: 30px;
+}
+
+.work__card li:last-child {
+  padding-bottom: 25px;
+}
+
+/* .work__card:nth-last-child(1):nth-last-child(odd){
+	grid-column: 3;
+  background-image: linear-gradient(
+    -225deg,
+    #231557 0%,
+    #44107a 29%,
+    #ff1361 67%,
+    #fff800 100%);
+} */
+
+.work__card h3 {
+  text-align: center;
+  margin-top: 20px;
+}
+.work__card h2 {
+  text-align: center;
+}
+
+.work__card p {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 20px;
+}
+
+.work__btn {
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.work__card button {
+  color: #fff;
+  padding: 14px 24px;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  background: #131313;
+  font-size: 1rem;
+}
+
+.work__card button:hover {
+  cursor: pointer;
+}
+
+.work__card:hover {
+  transform: scale(1.075);
+  transition: 0.3s ease-in;
+  cursor: pointer;
+}
+
+.title__2 {
+  margin-top: 50px;
+}
+
+
+/* Footer */
+footer {
+  height: 150px;
+  background-color: #444;
+  margin-top: 30px;
 }
