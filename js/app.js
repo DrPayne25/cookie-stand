@@ -1,5 +1,6 @@
 
 let cookieTable = document.querySelector('table');
+let storeForm = document.getElementById('store-form');
 const hoursOpen = ['6am', '7am', '8am', '9am', '10am', '11am', '12am', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 let allStores = [];
 function Stores (name, min, max, avg){
@@ -75,10 +76,35 @@ function cookieFooterRender() {
 }
 cookieFooterRender();
 
+// function calculateTotals(){
+//   for (let i = 0; i < calcCookiesPerHour.length; i++){
+//     let columTotal = 0;
+//     for (let j = 0; j < allStores.length; j++){
+//       columnTotal += allStores[j].dailyTotal[i];
+//       console.log(columTotal);
+//     }
+//   }
+// }
+
+// calculateTotals();
+
 let seattleStore = new Stores('Seattle', 23, 65, 6.3);
 let tokyoStore = new Stores('Tokyo', 3, 24, 1.2);
 let dubaiStore = new Stores('Dubai', 11, 38, 3.7);
 let parisStore = new Stores('Paris', 20, 38, 2.3);
 let limaStore = new Stores('Lima', 2, 16, 4.6);
+
+function handleStoreData(event){
+  event.preventDefault();
+  let storeName = event.target.name.value;
+  let minimumcustomers = +event.target.minimumcustomers.value;
+  let maxcustomers = +event.target.maxcustomers.value;
+  let avgcookiessold = +event.target.avgcookiessold.value;
+  let storeData = [storeName, minimumcustomers, maxcustomers, avgcookiessold];
+  console.log(storeData);
+}
+
+handleStoreData();
+
 
 
