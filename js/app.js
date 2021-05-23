@@ -76,18 +76,6 @@ function cookieFooterRender() {
 }
 cookieFooterRender();
 
-// function calculateTotals(){
-//   for (let i = 0; i < calcCookiesPerHour.length; i++){
-//     let columTotal = 0;
-//     for (let j = 0; j < allStores.length; j++){
-//       columnTotal += allStores[j].dailyTotal[i];
-//       console.log(columTotal);
-//     }
-//   }
-// }
-
-// calculateTotals();
-
 let seattleStore = new Stores('Seattle', 23, 65, 6.3);
 let tokyoStore = new Stores('Tokyo', 3, 24, 1.2);
 let dubaiStore = new Stores('Dubai', 11, 38, 3.7);
