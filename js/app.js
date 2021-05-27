@@ -62,23 +62,6 @@ function cookieHeader() {
 
 cookieHeader();
 
-function handleStoreData(event){
-  event.preventDefault();
-  let storeName = event.target.name.value;
-  let minimumcustomers = +event.target.minimumcustomers.value;
-  let maxcustomers = +event.target.maxcustomers.value;
-  let avgcookiessold = +event.target.avgcookiessold.value;
-  let newStore = new Stores(storeName, minimumcustomers, maxcustomers, avgcookiessold);
-  allStores.push(newStore);
-  cookieTableFooter.innerHTML = '';
-  cookieFooterRender();
-  event.target.name.value = '';
-  event.target.minimumcustomers.value = '';
-  event.target.maxcustomers.value = '';
-  event.target.avgcookiessold.value = '';
-  event.target.avgcookiessold.value = '';
-}
-
 function cookieFooterRender() {
   let tr = document.createElement('tr');
   let td = document.createElement('td');
@@ -103,7 +86,23 @@ function cookieFooterRender() {
   tr.appendChild(grandTotal);
   cookieTableFooter.appendChild(tr);
 }
-cookieFooterRender();
+
+function handleStoreData(event){
+  event.preventDefault();
+  let storeName = event.target.name.value;
+  let minimumcustomers = +event.target.minimumcustomers.value;
+  let maxcustomers = +event.target.maxcustomers.value;
+  let avgcookiessold = +event.target.avgcookiessold.value;
+  new Stores(storeName, minimumcustomers, maxcustomers, avgcookiessold);
+  cookieTableFooter.innerHTML = '';
+  cookieFooterRender();
+  event.target.name.value = '';
+  event.target.minimumcustomers.value = '';
+  event.target.maxcustomers.value = '';
+  event.target.avgcookiessold.value = '';
+  event.target.avgcookiessold.value = '';
+}
+
 
 new Stores('Seattle', 23, 65, 6.3);
 new Stores('Tokyo', 3, 24, 1.2);
